@@ -7,7 +7,7 @@ function get_creator()
 end
 
 function get_description()
-	return { "READ A VALUE FROM IN.A", "READ A VALUE FROM IN.B", "OUT.AND = IN.A & IN.B", "OUT.OR = IN.A | IN.B"}
+	return { "READ A VALUE FROM IN.A", "READ A VALUE FROM IN.B", "OUT.AND = IN.A & IN.B", "OUT.OR = IN.A | IN.B" }
 end
 
 function get_streams()
@@ -15,7 +15,7 @@ function get_streams()
 	inputB = {}
 	outputA = {}
 	outputB = {}
-	for i = 1,39 do
+	for i = 1, 39 do
 		inputA[i] = math.random(1, 255)
 		inputB[i] = math.random(1, 255)
 		outputA[i] = bit32.band(inputA[i], inputB[i])
@@ -28,7 +28,7 @@ function get_streams()
 		{ STREAM_OUTPUT, "OUT.OR", 2, outputB },
 	}
 end
-
+-- stylua: ignore
 function get_layout()
 	return { 
 		TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_MEMORY,

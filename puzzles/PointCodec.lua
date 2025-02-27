@@ -7,7 +7,14 @@ function get_creator()
 end
 
 function get_description()
-	return { "READ AN X AN Y VALUE FROM IN IN.P", "OUTPUT 30 * Y + X TO OUT.E", "READ AN ENCODED NUMBER FROM IN.E", "X = IN.E % 30", "Y = (IN.E - X) / 30", "OUTPUT X AND Y TO OUT.P" }
+	return {
+		"READ AN X AN Y VALUE FROM IN IN.P",
+		"OUTPUT 30 * Y + X TO OUT.E",
+		"READ AN ENCODED NUMBER FROM IN.E",
+		"X = IN.E % 30",
+		"Y = (IN.E - X) / 30",
+		"OUTPUT X AND Y TO OUT.P",
+	}
 end
 
 -- STREAM_IMAGE: An image output stream, containing exactly 30*18 numerical values between 0
@@ -17,13 +24,13 @@ function get_streams()
 	inpute = {}
 	outpute = {}
 	outputp = {}
-	for i = 1,19 do
+	for i = 1, 19 do
 		inpute[i] = math.random(0, 539)
-		outputp[i*2 - 1] = inpute[i] % 30
-		outputp[i*2] = math.floor(inpute[i] / 30)
+		outputp[i * 2 - 1] = inpute[i] % 30
+		outputp[i * 2] = math.floor(inpute[i] / 30)
 		outpute[i] = math.random(0, 539)
-		inputp[i*2 - 1] = outpute[i] % 30
-		inputp[i*2] = math.floor(outpute[i] / 30)
+		inputp[i * 2 - 1] = outpute[i] % 30
+		inputp[i * 2] = math.floor(outpute[i] / 30)
 	end
 
 	return {
@@ -33,7 +40,7 @@ function get_streams()
 		{ STREAM_OUTPUT, "OUT.P", 3, outputp },
 	}
 end
-
+-- stylua: ignore
 function get_layout()
 	return { 
 		TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_COMPUTE,

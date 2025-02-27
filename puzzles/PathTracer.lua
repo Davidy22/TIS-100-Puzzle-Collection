@@ -3,20 +3,22 @@ function get_name()
 end
 
 function get_description()
-	return { "READ AN ANGLE IN DEGREES FROM IN",
-					 "READ A LENGTH FROM IN",
-					 "START AT 0,0, DRAW A LINE SEGMENT AT THAT ANGLE WITH THAT LENGTH",
-					 "THE NEXT LINE SEGMENT BEGINS ON THE END OF THE LAST" }
+	return {
+		"READ AN ANGLE IN DEGREES FROM IN",
+		"READ A LENGTH FROM IN",
+		"START AT 0,0, DRAW A LINE SEGMENT AT THAT ANGLE WITH THAT LENGTH",
+		"THE NEXT LINE SEGMENT BEGINS ON THE END OF THE LAST",
+	}
 end
 
 function get_streams()
 	-- Initialize the image grid to all zeros (black):
 	::retry::
-  image = {}
-  for i = 1,30*18 do
-    image[i] = 0
-  end
-  image[1] = 3
+	image = {}
+	for i = 1, 30 * 18 do
+		image[i] = 0
+	end
+	image[1] = 3
 
 	input = {}
 	x = 0
@@ -26,7 +28,7 @@ function get_streams()
 	num_segments = 0
 	num_fails = 0
 
-	while (num_segments < 19) do
+	while num_segments < 19 do
 		-- Define new segment
 		local new_dx
 		local new_dy
@@ -68,18 +70,18 @@ function get_streams()
 		-- Add this segment to input and output
 		dx = new_dx
 		dy = new_dy
-		if dx == 1 and dy == 0
-			then input[num_segments * 2 + 1] = 0
-		elseif dx == 0 and dy == -1
-			then input[num_segments * 2 + 1] = 90
-		elseif dx == -1 and dy == 0
-			then input[num_segments * 2 + 1] = 180
-		elseif dx == 0 and dy == 1
-			then input[num_segments * 2 + 1] = 270
+		if dx == 1 and dy == 0 then
+			input[num_segments * 2 + 1] = 0
+		elseif dx == 0 and dy == -1 then
+			input[num_segments * 2 + 1] = 90
+		elseif dx == -1 and dy == 0 then
+			input[num_segments * 2 + 1] = 180
+		elseif dx == 0 and dy == 1 then
+			input[num_segments * 2 + 1] = 270
 		end
 		input[num_segments * 2 + 2] = length + 1
 
-		for i = 1,length do
+		for i = 1, length do
 			x = x + dx
 			y = y + dy
 			image[coor(x, y)] = 3
@@ -110,7 +112,7 @@ function idx(array, i)
 	end
 	return array[i]
 end
-
+-- stylua: ignore
 function get_layout()
 	return { 
 		TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_DAMAGED, 	TILE_DAMAGED,

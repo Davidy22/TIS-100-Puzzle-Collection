@@ -7,6 +7,7 @@ function get_description()
 end
 
 function get_streams()
+	-- stylua: ignore
 	output = {
 		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 		0,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -27,12 +28,12 @@ function get_streams()
 		0,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,
 		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 		}
-		
+
 	return {
 		{ STREAM_IMAGE, "OUT.A", 2, output },
 	}
 end
-
+-- stylua: ignore
 function get_layout()
 	return { 
 		TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_COMPUTE,

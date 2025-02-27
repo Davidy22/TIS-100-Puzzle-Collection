@@ -6,7 +6,8 @@ function get_description()
 	return { "FILL THE IMAGE BUFFER WITH THE SPECIFIED TARGET TEST PATTERN" }
 end
 
-function get_streams()	
+function get_streams()
+	-- stylua: ignore
 	output = {
 		3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 		3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,
@@ -27,12 +28,12 @@ function get_streams()
 		3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,
 		3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
 		}
-		
+
 	return {
 		{ STREAM_IMAGE, "OUT.A", 2, output },
 	}
 end
-
+-- stylua: ignore
 function get_layout()
 	return { 
 		TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_COMPUTE,

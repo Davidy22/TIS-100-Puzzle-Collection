@@ -9,7 +9,7 @@ end
 function get_streams()
 	input = {}
 	output = {}
-	for i = 1,39 do
+	for i = 1, 39 do
 		input[i] = math.random(0, 999)
 		output[i] = math.floor(math.sqrt(input[i]))
 	end
@@ -18,7 +18,7 @@ function get_streams()
 		{ STREAM_OUTPUT, "OUT.ISQRT", 1, output },
 	}
 end
-
+-- stylua: ignore
 function get_layout()
 	return { 
 		TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_COMPUTE, 	TILE_COMPUTE,

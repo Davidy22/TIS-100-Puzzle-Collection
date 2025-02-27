@@ -7,7 +7,12 @@ function get_creator()
 end
 
 function get_description()
-	return { "READ VALUES FROM IN.A AND IN.B", "COMPUTE THE SUM AND PRODUCT OF THE TWO NUMBERS", "WRITE THE SUB TO OUT.S", "WRITE THE PRODUCT TO OUT.P" }
+	return {
+		"READ VALUES FROM IN.A AND IN.B",
+		"COMPUTE THE SUM AND PRODUCT OF THE TWO NUMBERS",
+		"WRITE THE SUB TO OUT.S",
+		"WRITE THE PRODUCT TO OUT.P",
+	}
 end
 
 function get_streams()
@@ -15,7 +20,7 @@ function get_streams()
 	input2 = {}
 	outputs = {}
 	outputp = {}
-	for i = 1,39 do
+	for i = 1, 39 do
 		input[i] = math.random(0, 32)
 		input2[i] = math.random(0, 31)
 		outputs[i] = input[i] + input2[i]
@@ -25,10 +30,10 @@ function get_streams()
 		{ STREAM_INPUT, "IN.A", 0, input },
 		{ STREAM_INPUT, "IN.B", 2, input2 },
 		{ STREAM_OUTPUT, "OUT.S", 0, outputs },
-		{ STREAM_OUTPUT, "OUT.P", 2, outputp }
+		{ STREAM_OUTPUT, "OUT.P", 2, outputp },
 	}
 end
-
+-- stylua: ignore
 function get_layout()
 	return { 
 		TILE_COMPUTE, 	TILE_MEMORY, 	TILE_COMPUTE, 	TILE_DAMAGED,
